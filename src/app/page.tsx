@@ -7,116 +7,152 @@ const CONTACT_EMAIL = "contato@10xai.us";
 const DEFAULT_BOOKING_URL = "#contact";
 
 const navItems = [
-  ["Differentiation", "#difference"],
+  ["Vision", "#difference"],
   ["Use cases", "#use-cases"],
   ["ROI", "#roi"],
-  ["Offers", "#offers"],
-  ["FAQ", "#faq"],
+  ["Method", "#offers"],
+  ["Book", "#contact"],
 ] as const;
+
+const firstThirtySecondsSentence =
+  "Within the first 30 seconds, a new buyer should see the exact business system to automate first and feel compelled to book the working session that gets it live.";
 
 const differenceItems = [
   {
-    title: "Implementation, not inspiration",
-    text: "10XAI should win as the team that ships the workflow, connects the stack, documents the SOP, and trains the humans.",
+    title: "Business systems, not AI theater",
+    text: "10XAI should position itself as the team that turns postponed strategic ideas into working operating systems for revenue, onboarding, service, and delivery.",
   },
   {
-    title: "Built for SMB economics",
-    text: "The site now speaks to speed, budget, and payback instead of enterprise theater and vague transformation language.",
+    title: "Built for SMB speed and economics",
+    text: "The strongest message is practical urgency: fast implementation, measurable payback, and systems leaders can actually roll out without enterprise drag.",
   },
   {
-    title: "Adoption is part of delivery",
-    text: "Most agencies stop after setup. 10XAI should own rollout, prompts, enablement, and weekly optimization.",
+    title: "Adoption is part of the product",
+    text: "The market has plenty of tools. The gap is making teams use them confidently every day through rollout, enablement, and operational discipline.",
   },
 ];
 
 const useCases = [
   {
-    name: "Clinics and healthcare ops",
+    name: "LMS onboarding and training system",
+    audience: "HR, enablement, operations",
+    story:
+      "The company has wanted a real onboarding academy for years. 10XAI turns scattered SOPs, decks, videos, and tribal knowledge into a structured LMS experience with AI support, recommended lessons, and role-based training.",
+    outcome:
+      "New hires ramp faster, managers repeat themselves less, and the business finally has a living training engine instead of folders nobody opens.",
     bullets: [
-      "Appointment intake, confirmations, reschedules, and no-show recovery",
-      "Patient FAQ and document triage copilots",
-      "Post-visit follow-up and review capture",
+      "Build learning journeys and role-based onboarding paths",
+      "Transform existing docs and videos into guided modules",
+      "Use AI to summarize, quiz, recommend, and reinforce learning",
     ],
   },
   {
-    name: "Legal and professional services",
+    name: "AI sales playbook plus operating CRM",
+    audience: "Sales leaders, founders, commercial teams",
+    story:
+      "Instead of another CRM full of notes, 10XAI can design a modern commercial system where reps know what to do next, see AI-generated account insights, prepare for meetings faster, and send better follow-up with less friction.",
+    outcome:
+      "The sales team works with more confidence, managers coach from signal instead of guesswork, and the pipeline gets cleaner, faster, and more consistent.",
     bullets: [
-      "Contract intake, clause extraction, and client update drafting",
-      "Proposal assembly, meeting summaries, and knowledge assistants",
-      "Matter-status automation for clients and internal teams",
+      "Operational playbook aligned to your sales motion and stages",
+      "AI recommendations for next meeting, deal movement, and engagement",
+      "Export-ready email drafts for Gmail or Outlook",
     ],
   },
   {
-    name: "Distribution, ecommerce, and field operations",
+    name: "Marketing automation with autonomous agents",
+    audience: "Marketing teams, growth leaders, founders",
+    story:
+      "10XAI can build a marketing engine that maps content, creates calendars, writes copy, generates media, plans cadences, triggers journeys, and publishes automatically across the channels that matter.",
+    outcome:
+      "The brand becomes more visible, the cadence becomes consistent, and the company starts looking bigger, sharper, and more disciplined in the market.",
     bullets: [
-      "Quote-to-order automation and sales follow-up sequences",
-      "Demand summaries, issue routing, and warehouse exception handling",
-      "Service ticket classification and dispatch support",
+      "Content maps, campaign calendars, and journey logic",
+      "AI-generated posts, images, videos, and campaign assets",
+      "Scheduling, approvals, and automatic publishing workflows",
     ],
   },
   {
-    name: "Owner-led service businesses",
+    name: "RFP intelligence and bid qualification agent",
+    audience: "B2B teams, public tenders, enterprise sellers",
+    story:
+      "Public tenders and RFPs consume time because teams are constantly comparing documents, interpreting fit, and rewriting narrative. 10XAI can create an agent that scores fit, identifies gaps, and recommends how to improve your product description before you chase the bid.",
+    outcome:
+      "Your team pursues better opportunities, improves win-readiness, and gets a sharper commercial narrative over time.",
     bullets: [
-      "Inbound lead qualification and reactivation",
-      "Proposal drafting and follow-up reminders",
-      "Inbox, calendar, and task automation for busy founders",
+      "Compare requirements against your product capabilities",
+      "Score alignment and highlight missing proof or positioning gaps",
+      "Recommend how to proceed and improve the bid narrative",
+    ],
+  },
+  {
+    name: "Automated booking and customer service for dentists",
+    audience: "Dental clinics, front-desk teams, healthcare operators",
+    story:
+      "Dental practices lose revenue between inbound interest, appointment booking, reminders, reschedules, cancellations, and patient questions. 10XAI can design a booking and service layer that keeps patients moving and the front desk calmer.",
+    outcome:
+      "More appointments booked, fewer empty chairs, faster responses, and a better patient experience without front-desk overload.",
+    bullets: [
+      "Booking, reminders, reschedules, and no-show recovery",
+      "FAQ support and patient-service workflows",
+      "Clear handoff for urgent requests and follow-up communication",
     ],
   },
 ];
 
 const offers = [
   {
-    title: "AI Opportunity Sprint",
-    timeline: "2 weeks",
+    title: "Future-state vision",
+    timeline: "Week 1",
     bullets: [
-      "Process audit and workflow mapping",
-      "Prioritized backlog with ROI logic",
-      "One high-conviction automation blueprint",
+      "Define what the business should feel like six months from now",
+      "Choose the first system that changes perception fast",
+      "Frame success around speed, clarity, and operating leverage",
     ],
   },
   {
-    title: "Automation Buildout",
-    timeline: "30-45 days",
+    title: "System design and launch",
+    timeline: "Weeks 2-6",
     bullets: [
-      "Workflow implementation and tool integration",
-      "Prompting, guardrails, and testing",
-      "Launch support and KPI dashboard",
+      "Design workflows, prompts, integrations, and guardrails",
+      "Implement the stack and test the behavior",
+      "Launch the first live operating system with KPI visibility",
     ],
   },
   {
-    title: "AI Operating System",
+    title: "Adoption and compounding",
     timeline: "90 days",
     bullets: [
-      "Multiple systems across revenue, ops, and service",
-      "Team training and weekly optimization",
-      "Leadership reporting and scaling roadmap",
+      "Train the team and reinforce daily usage",
+      "Optimize the system based on real operating signal",
+      "Use the first win to accelerate the next three initiatives",
     ],
   },
 ];
 
 const comparisonRows = [
-  ["Big consultancies", "Strong at strategy, too slow and too expensive for SMB urgency."],
-  ["Automation platforms", "Great tools, but buyers still need design, rollout, and ownership."],
-  ["Freelancers", "Fast to start, weak on adoption, architecture, and repeatability."],
-  ["10XAI", "Operator-minded implementation partner that ships, trains, and optimizes."],
+  ["Large consultancies", "Strong on decks and steering committees, too heavy for SMB speed and economics."],
+  ["Automation platforms", "Powerful products, but the buyer still has to design the workflow, rollout, and adoption plan."],
+  ["Freelancers", "Quick to start, but often fragile on architecture, change management, and repeatability."],
+  ["10XAI", "Business-oriented implementation partner that designs the system, launches it, and helps the team use it."],
 ] as const;
 
 const faqItems = [
   [
     "How fast can this go live?",
-    "A focused sprint can start producing value in 2 to 4 weeks. Larger multi-workflow rollouts usually land in 30 to 90 days.",
+    "The first system can usually start producing visible value in 2 to 4 weeks. Broader rollouts across multiple workflows often land in 30 to 90 days.",
   ],
   [
-    "Do we need a data team first?",
-    "Not always. For many SMBs, the best first wins come from workflow automation, internal copilots, and process cleanup before advanced data work.",
+    "Is this only for larger companies?",
+    "No. The strongest fit is often a small or mid-sized company that already feels process pain and wants implementation, not another strategy deck.",
   ],
   [
-    "Will this replace our team?",
-    "The strongest SMB use cases remove bottlenecks, not ownership. The goal is better throughput, faster response, and fewer manual loops.",
+    "Do we need to replace our current tools?",
+    "Usually not. The fastest wins often come from connecting the tools you already use and making them more intelligent, more automated, and easier to operate.",
   ],
   [
-    "What stack should we expect?",
-    "Usually a mix of business tools you already use plus Vercel, Supabase, AI APIs, calendar and email integrations, and lightweight dashboards.",
+    "Why should we book now instead of later?",
+    "Because the companies that operationalize first gain faster internal learning, faster customer response, and faster commercial momentum. Delay is not neutral.",
   ],
 ] as const;
 
@@ -169,12 +205,12 @@ export default function Home() {
   const quarterlyImpact = monthlyRecovered * 3;
   const sprintCost = 7500;
   const paybackMonths = monthlyRecovered > 0 ? sprintCost / monthlyRecovered : 0;
-  const recommendedOffer =
+  const useCaseRecommendation =
     monthlyRecovered < 4000
-      ? offers[0].title
+      ? useCases[0].name
       : monthlyRecovered < 12000
-        ? offers[1].title
-        : offers[2].title;
+        ? useCases[1].name
+        : useCases[2].name;
 
   function handleBriefSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -195,6 +231,9 @@ export default function Home() {
       "",
       "Estimated monthly labor value recovered",
       `$${monthlyRecovered.toLocaleString("en-US")}`,
+      "",
+      "Recommended first system",
+      useCaseRecommendation,
     ].join("\n");
 
     window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -214,7 +253,7 @@ export default function Home() {
               priority
             />
             <span className="hidden font-mono text-xs uppercase tracking-[0.3em] text-[var(--muted)] sm:inline">
-              AI implementation
+              AI operating systems
             </span>
           </a>
 
@@ -230,7 +269,7 @@ export default function Home() {
             href={bookingUrl}
             className="hidden rounded-full border border-[var(--brand)] bg-[var(--brand)] px-4 py-2 text-sm font-medium text-[var(--background)] shadow-[0_0_24px_var(--brand-glow)] hover:-translate-y-0.5 sm:inline-flex"
           >
-            Book an AI growth call
+            Schedule the working session
           </a>
         </div>
       </header>
@@ -242,21 +281,21 @@ export default function Home() {
         <div className="relative z-10">
           <span className="eyebrow">
             <span className="brand-dot" />
-            AI implementation and automation for ambitious SMBs
+            AI operating systems for ambitious small and mid-sized businesses
           </span>
           <h1 className="display-title mt-8 max-w-4xl text-5xl font-semibold tracking-[-0.04em] text-[var(--paper)] sm:text-6xl lg:text-7xl">
-            Operational AI that makes small teams move like market leaders.
+            Build the system your team has been talking about for years.
           </h1>
           <p className="section-copy mt-7 max-w-2xl text-lg leading-8 sm:text-xl">
-            10XAI helps growing companies automate revenue, service, and back-office work
-            without enterprise drag. We design, build, launch, and train your team so the
-            system actually gets used.
+            10XAI designs and launches business-oriented AI systems for onboarding,
+            sales, marketing, service, booking, and bid qualification so teams move faster,
+            look sharper, and stop losing margin to repetitive work.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <Pill>Built for small and mid-sized businesses</Pill>
-            <Pill>From audit to deployed workflows</Pill>
-            <Pill>Adoption and team enablement included</Pill>
+            <Pill>LMS onboarding implementation</Pill>
+            <Pill>AI sales playbook plus CRM intelligence</Pill>
+            <Pill>Marketing automation agents</Pill>
           </div>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
@@ -264,27 +303,23 @@ export default function Home() {
               href={bookingUrl}
               className="inline-flex items-center justify-center rounded-full bg-[var(--brand)] px-6 py-3.5 text-base font-medium text-[var(--background)] hover:-translate-y-0.5"
             >
-              Book an AI growth call
+              Book the strategy session
             </a>
             <a
-              href="#roi"
+              href="#use-cases"
               className="inline-flex items-center justify-center rounded-full border border-[var(--line-strong)] px-6 py-3.5 text-base font-medium text-[var(--paper)] hover:border-[var(--brand)] hover:text-[var(--paper)]"
             >
-              Jump to ROI estimator
+              Explore the business systems
             </a>
           </div>
 
-          <div className="mt-16 grid gap-4 sm:grid-cols-3">
-            {[
-              ["2-4", "weeks for a sharp first win"],
-              ["ROI", "tracked around margin, time, and response speed"],
-              ["SMB", "scope designed for fast-moving operators"],
-            ].map(([value, label]) => (
-              <div key={label} className="panel rounded-3xl p-5">
-                <div className="metric-value brand-gradient">{value}</div>
-                <p className="metric-label mt-3">{label}</p>
-              </div>
-            ))}
+          <div className="mt-14 max-w-3xl border-l border-[var(--brand)] pl-5">
+            <p className="font-mono text-xs uppercase tracking-[0.28em] text-[var(--muted)]">
+              The first 30-second promise
+            </p>
+            <p className="mt-4 text-2xl leading-9 text-[var(--paper)] sm:text-3xl">
+              {firstThirtySecondsSentence}
+            </p>
           </div>
         </div>
 
@@ -292,10 +327,10 @@ export default function Home() {
           <div className="logo-stage relative rounded-[1.6rem] p-6 sm:p-8">
             <div className="flex items-center justify-between gap-4">
               <p className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--paper)]/72">
-                10XAI operating layer
+                Corporate vision made operational
               </p>
               <span className="rounded-full border border-[var(--line)] bg-white/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]">
-                Midnight cyan system
+                Nike x Apple energy
               </span>
             </div>
 
@@ -312,9 +347,9 @@ export default function Home() {
 
             <div className="relative z-10 mt-10 space-y-3">
               {[
-                "Revenue systems that qualify, follow up, and book without manual lag",
-                "Ops copilots that reduce repetitive work across inbox, docs, and coordination",
-                "Rollout support so the team actually uses the workflow every day",
+                "The LMS onboarding engine your team has wanted for years, finally live",
+                "A sales operating system that tells reps what to do next and writes the follow-up",
+                "Marketing, service, and booking workflows that feel faster immediately",
               ].map((item, index) => (
                 <div
                   key={item}
@@ -333,9 +368,9 @@ export default function Home() {
 
       <section id="difference" className="mx-auto max-w-7xl px-5 py-18 sm:px-8 lg:py-24">
         <SectionIntro
-          eyebrow="Why 10XAI can win"
-          title="Most AI agencies sell noise. The best positioning is execution with operator empathy."
-          body="The market is crowded with strategy decks, generic no-code automation, or product subscriptions pretending to be implementation. 10XAI should sit in the lane between consultancy and software: fast, custom, measurable rollout for owners and operators."
+          eyebrow="Why buyers move now"
+          title="The companies that operationalize AI first do not just save time. They change how the market experiences them."
+          body="Faster follow-up feels like better service. Smarter preparation feels like stronger leadership. Consistent campaigns feel like a bigger company. That perception gap becomes pipeline, trust, and momentum."
         />
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {differenceItems.map((item) => (
@@ -352,22 +387,32 @@ export default function Home() {
 
       <section id="use-cases" className="mx-auto max-w-7xl px-5 py-18 sm:px-8 lg:py-24">
         <SectionIntro
-          eyebrow="Where margin hides"
-          title="The strongest wedge is verticalized operational playbooks."
-          body="Instead of sounding like every generalist AI shop, lead with concrete business systems that SMB owners can immediately picture in their companies."
+          eyebrow="Use-case storytelling"
+          title="Show buyers the business system they have been postponing, and the appointment becomes easier to book."
+          body="Instead of listing services, show the future-state operating picture. The buyer should immediately recognize their own bottleneck and the system that would remove it."
         />
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+        <div className="mt-10 space-y-5">
           {useCases.map((item) => (
-            <article key={item.name} className="panel rounded-[1.75rem] p-7">
-              <h3 className="text-2xl font-medium text-[var(--paper)]">{item.name}</h3>
-              <ul className="mt-5 space-y-3">
+            <article key={item.name} className="panel rounded-[2rem] p-7 sm:p-8">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                  <p className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--brand)]">
+                    {item.audience}
+                  </p>
+                  <h3 className="mt-3 text-2xl font-medium text-[var(--paper)] sm:text-3xl">
+                    {item.name}
+                  </h3>
+                </div>
+              </div>
+              <p className="section-copy mt-5 max-w-4xl text-lg leading-8">{item.story}</p>
+              <p className="mt-5 max-w-4xl text-lg leading-8 text-[var(--paper)]/90">{item.outcome}</p>
+              <div className="mt-7 grid gap-3 sm:grid-cols-3">
                 {item.bullets.map((bullet) => (
-                  <li key={bullet} className="flex gap-3 text-[var(--muted)]">
-                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[var(--brand)]" />
-                    <span>{bullet}</span>
-                  </li>
+                  <div key={bullet} className="rounded-[1.5rem] border border-[var(--line)] bg-white/3 p-4">
+                    <p className="text-sm leading-6 text-[var(--muted)]">{bullet}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </article>
           ))}
         </div>
@@ -376,9 +421,9 @@ export default function Home() {
       <section id="roi" className="mx-auto max-w-7xl px-5 py-18 sm:px-8 lg:py-24">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionIntro
-            eyebrow="Interactive proof"
-            title="A live ROI estimator converts better than vague promises."
-            body="Use the calculator to anchor the conversation around recovered hours, margin, and payback speed. It turns AI from hype into economics."
+            eyebrow="Commercial proof"
+            title="Turn urgency into economics and economics into a booked call."
+            body="The strongest conversion mechanism here is not abstract innovation language. It is the feeling that the buyer can quantify the drag they are living with right now."
           />
           <div className="panel-strong rounded-[2rem] p-6 sm:p-8">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -436,30 +481,30 @@ export default function Home() {
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               <div className="rounded-[1.5rem] border border-[var(--line)] bg-[rgba(6,12,22,0.35)] p-5">
-                <p className="text-sm text-[var(--muted)]">Monthly labor value recovered</p>
+                <p className="text-sm text-[var(--muted)]">Monthly value recovered</p>
                 <p className="mt-4 text-3xl font-semibold text-[var(--paper)]">
                   ${monthlyRecovered.toLocaleString("en-US")}
                 </p>
               </div>
               <div className="rounded-[1.5rem] border border-[var(--line)] bg-[rgba(6,12,22,0.35)] p-5">
-                <p className="text-sm text-[var(--muted)]">90-day impact</p>
+                <p className="text-sm text-[var(--muted)]">90-day business impact</p>
                 <p className="mt-4 text-3xl font-semibold text-[var(--paper)]">
                   ${quarterlyImpact.toLocaleString("en-US")}
                 </p>
               </div>
               <div className="rounded-[1.5rem] border border-[var(--line)] bg-[rgba(6,12,22,0.35)] p-5">
-                <p className="text-sm text-[var(--muted)]">Estimated payback on a sprint</p>
+                <p className="text-sm text-[var(--muted)]">Estimated payback</p>
                 <p className="mt-4 text-3xl font-semibold text-[var(--paper)]">
-                  {paybackMonths > 0 ? `${paybackMonths.toFixed(1)} mo` : "--"}
+                  {paybackMonths > 0 ? `${(paybackMonths * 4.33).toFixed(1)} wks` : "--"}
                 </p>
               </div>
             </div>
 
             <div className="mt-5 rounded-[1.5rem] border border-[var(--brand)] bg-[var(--brand-soft)] p-5">
               <p className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--muted)]">
-                Best first engagement
+                Recommended first system
               </p>
-              <p className="mt-3 text-2xl font-medium text-[var(--paper)]">{recommendedOffer}</p>
+              <p className="mt-3 text-2xl font-medium text-[var(--paper)]">{useCaseRecommendation}</p>
             </div>
           </div>
         </div>
@@ -467,9 +512,9 @@ export default function Home() {
 
       <section id="offers" className="mx-auto max-w-7xl px-5 py-18 sm:px-8 lg:py-24">
         <SectionIntro
-          eyebrow="Commercial architecture"
-          title="Fixed-scope offers outperform vague consulting menus."
-          body="Make buying easy. Buyers should know what happens first, how fast it moves, and what success looks like."
+          eyebrow="Corporate vision methodology"
+          title="Your team is the hero. 10XAI is the partner that turns the vision into a repeatable operating reality."
+          body="This is not about dropping tools on top of an old process. It is about building the next version of how the company runs, with a sequence leadership can understand and teams can adopt."
         />
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {offers.map((item) => (
@@ -496,7 +541,7 @@ export default function Home() {
       <section className="mx-auto max-w-7xl px-5 py-18 sm:px-8 lg:py-24">
         <SectionIntro
           eyebrow="Positioning contrast"
-          title="How 10XAI should sound against the market"
+          title="The market has tools, strategists, and freelancers. What most SMBs still need is a partner that makes the system real."
         />
         <div className="mt-10 overflow-hidden rounded-[1.75rem] border border-[var(--line)]">
           {comparisonRows.map(([label, detail], index) => (
@@ -527,8 +572,8 @@ export default function Home() {
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionIntro
             eyebrow="Next step"
-            title="Make the conversion path feel immediate."
-            body="For a lead-focused site, the primary CTA should drive to a booked conversation. The fallback should capture a detailed brief by email so no intent is lost."
+            title="The right CTA is not 'learn more.' It is the working session that shows what your first system should be."
+            body="The people who book fastest are usually the ones who already feel the pain: slow onboarding, weak follow-up, inconsistent marketing, missed bids, and manual booking chaos. Use that urgency while the problem is visible."
           />
           <div className="grid gap-5">
             <div className="panel-strong rounded-[2rem] p-6 sm:p-8">
@@ -553,8 +598,8 @@ export default function Home() {
                 </a>
               </div>
               <p className="section-copy mt-5 text-sm">
-                Tip: connect NEXT_PUBLIC_BOOKING_URL to your Google Calendar appointment
-                schedule or Cal.com link for a true booking flow.
+                Connect NEXT_PUBLIC_BOOKING_URL to your live booking flow in Vercel so the
+                main CTA goes directly to the appointment experience.
               </p>
             </div>
 
@@ -591,7 +636,7 @@ export default function Home() {
                 </label>
                 <label className="block sm:col-span-2">
                   <span className="mb-2 block text-sm text-[var(--muted)]">
-                    What process is costing you time or money right now?
+                    Which business system should your company stop postponing?
                   </span>
                   <textarea
                     required
@@ -615,13 +660,8 @@ export default function Home() {
 
       <footer className="border-t border-[var(--line)] px-5 py-8 text-sm text-[var(--muted)] sm:px-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            Built to replace a generic Lovable site with a differentiated
-            conversion-focused system for 10XAI.
-          </p>
-          <p>
-            {CONTACT_EMAIL} · Sao Paulo + Miami
-          </p>
+          <p>10XAI builds business-oriented AI operating systems for fast-moving SMBs.</p>
+          <p>{CONTACT_EMAIL} | Sao Paulo + Miami</p>
         </div>
       </footer>
 
