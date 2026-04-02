@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Mono, Plus_Jakarta_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta-sans",
+  subsets: ["latin"],
+});
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -15,9 +20,9 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://10xai.us"),
-  title: "10XAI | AI implementation and automation for ambitious SMBs",
+  title: "10XAI | AI Operating Systems For SMBs",
   description:
-    "10XAI helps small and mid-sized businesses turn repetitive work into automated revenue, operations, and service systems with practical AI implementation.",
+    "10XAI helps small and mid-sized businesses turn slow operational workflows into practical AI systems for sales, onboarding, marketing, service, and booking.",
   keywords: [
     "AI agency",
     "AI implementation",
@@ -27,7 +32,7 @@ export const metadata: Metadata = {
     "operational AI",
   ],
   openGraph: {
-    title: "10XAI | AI implementation and automation for ambitious SMBs",
+    title: "10XAI | AI Operating Systems For SMBs",
     description:
       "Operational AI for growing companies. Strategy, build, rollout, and team enablement without enterprise-level drag.",
     url: "https://10xai.us",
@@ -37,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "10XAI | AI implementation and automation for ambitious SMBs",
+    title: "10XAI | AI Operating Systems For SMBs",
     description:
       "Operational AI for growing companies. Strategy, build, rollout, and team enablement without enterprise-level drag.",
   },
@@ -51,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
