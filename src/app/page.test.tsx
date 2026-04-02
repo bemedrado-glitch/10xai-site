@@ -69,6 +69,24 @@ describe("Home page", () => {
     ).toBeInTheDocument();
   });
 
+  it("applies the browser language after mount", async () => {
+    Object.defineProperty(window.navigator, "language", {
+      configurable: true,
+      value: "pt-BR",
+    });
+
+    render(<Page />);
+
+    await waitFor(() => {
+      expect(
+        screen.getByRole("heading", {
+          name: /faca sua empresa parecer mais rapida onde clientes e equipes percebem primeiro/i,
+        }),
+      ).toBeInTheDocument();
+      expect(document.documentElement.lang).toBe("pt-BR");
+    });
+  });
+
   it("switches languages from the header control", async () => {
     const user = userEvent.setup();
     render(<Page />);

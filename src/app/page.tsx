@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useEffect, useState, useSyncExternalStore } from "react";
 import { DEFAULT_BOOKING_PATH, getBookingCtaHref } from "../lib/booking";
 
 export const CONTACT_EMAIL = "contato@10xai.us";
@@ -275,6 +275,15 @@ export function detectInitialLanguage(): Language {
   return "en";
 }
 
+function getDocumentLanguage(language: Language) {
+  return language === "pt" ? "pt-BR" : language;
+}
+
+function syncDocumentLanguage(language: Language) {
+  if (typeof document === "undefined") return;
+  document.documentElement.lang = getDocumentLanguage(language);
+}
+
 function persistLanguage(language: Language) {
   if (typeof window === "undefined") return;
   try {
@@ -282,7 +291,15 @@ function persistLanguage(language: Language) {
   } catch {
     // Ignore storage access issues in restricted browsing environments.
   }
-  document.documentElement.lang = language === "pt" ? "pt-BR" : language;
+  syncDocumentLanguage(language);
+}
+
+function subscribeToLanguageSnapshot() {
+  return () => {};
+}
+
+function getServerLanguageSnapshot(): Language {
+  return "en";
 }
 
 export function buildBriefEmail(params: {
@@ -325,7 +342,13 @@ function SectionIntro({ eyebrow, title, body }: { eyebrow: string; title: string
 }
 
 export default function Home() {
-  const [language, setLanguage] = useState<Language>(() => detectInitialLanguage());
+  const detectedLanguage = useSyncExternalStore(
+    subscribeToLanguageSnapshot,
+    detectInitialLanguage,
+    getServerLanguageSnapshot,
+  );
+  const [languageOverride, setLanguageOverride] = useState<Language | null>(null);
+  const language = languageOverride ?? detectedLanguage;
   const [selectedSystemIndex, setSelectedSystemIndex] = useState(1);
   const [people, setPeople] = useState(6);
   const [hoursPerWeek, setHoursPerWeek] = useState(5);
@@ -338,7 +361,9 @@ export default function Home() {
   const bookingUrl = getBookingCtaHref();
   const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL || `mailto:${CONTACT_EMAIL}`;
 
-  useEffect(() => { persistLanguage(language); }, [language]);
+  useEffect(() => {
+    syncDocumentLanguage(language);
+  }, [language]);
   const t = siteCopy[language];
   const numberLocale = localeByLanguage[language];
   const selectedSystem = t.systems[Math.min(selectedSystemIndex, t.systems.length - 1)];
@@ -362,7 +387,7 @@ export default function Home() {
 
   return (
     <main className="noise-overlay min-h-screen overflow-x-hidden">
-      <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[rgba(7,14,28,0.78)] backdrop-blur-xl"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8"><a href="#top" className="flex items-center gap-3"><Image src="/brand/10xai-logo.png" alt="10XAI" width={118} height={28} className="h-7 w-auto" priority /></a><div className="hidden items-center gap-6 lg:flex">{t.nav.map((label, index) => { const ids = ["#difference", "#systems", "#markets", "#roi", "#faq", "#contact"]; return <a key={ids[index]} href={ids[index]} className="text-sm text-[var(--muted)] hover:text-[var(--paper)]">{label}</a>; })}</div><div className="flex items-center gap-3"><div className="language-toggle hidden sm:flex">{languages.map((item) => <button key={item.code} type="button" onClick={() => setLanguage(item.code)} className={`language-chip ${language === item.code ? "language-chip-active" : ""}`}>{item.label}</button>)}</div><a href={bookingUrl} className="hidden rounded-full border border-[var(--brand)] bg-[var(--brand)] px-4 py-2 text-sm font-medium text-[var(--background)] shadow-[0_0_24px_var(--brand-glow)] hover:-translate-y-0.5 sm:inline-flex">{t.headerCta}</a></div></div></header>
+      <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[rgba(7,14,28,0.78)] backdrop-blur-xl"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8"><a href="#top" className="flex items-center gap-3"><Image src="/brand/10xai-logo.png" alt="10XAI" width={118} height={28} className="h-7 w-auto" priority /></a><div className="hidden items-center gap-6 lg:flex">{t.nav.map((label, index) => { const ids = ["#difference", "#systems", "#markets", "#roi", "#faq", "#contact"]; return <a key={ids[index]} href={ids[index]} className="text-sm text-[var(--muted)] hover:text-[var(--paper)]">{label}</a>; })}</div><div className="flex items-center gap-3"><div className="language-toggle hidden sm:flex">{languages.map((item) => <button key={item.code} type="button" onClick={() => { setLanguageOverride(item.code); persistLanguage(item.code); }} className={`language-chip ${language === item.code ? "language-chip-active" : ""}`}>{item.label}</button>)}</div><a href={bookingUrl} className="hidden rounded-full border border-[var(--brand)] bg-[var(--brand)] px-4 py-2 text-sm font-medium text-[var(--background)] shadow-[0_0_24px_var(--brand-glow)] hover:-translate-y-0.5 sm:inline-flex">{t.headerCta}</a></div></div></header>
       <section id="top" className="hero-shell relative mx-auto max-w-7xl px-5 pb-18 pt-12 sm:px-8 lg:pb-24 lg:pt-18">
         <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
           <div className="relative z-10">
