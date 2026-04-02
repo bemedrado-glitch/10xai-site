@@ -202,7 +202,7 @@ export default function Home() {
 
   return (
     <main className="noise-overlay min-h-screen overflow-x-hidden">
-      <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-black/70 backdrop-blur-xl">
+      <header className="sticky top-0 z-40 border-b border-[var(--line)] bg-[rgba(7,14,28,0.72)] backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-8">
           <a href="#top" className="flex items-center gap-3">
             <Image
@@ -228,7 +228,7 @@ export default function Home() {
 
           <a
             href={bookingUrl}
-            className="hidden rounded-full border border-[var(--brand)] bg-[var(--brand)] px-4 py-2 text-sm font-medium text-white shadow-[0_0_24px_rgba(242,27,27,0.25)] hover:-translate-y-0.5 sm:inline-flex"
+            className="hidden rounded-full border border-[var(--brand)] bg-[var(--brand)] px-4 py-2 text-sm font-medium text-[var(--background)] shadow-[0_0_24px_var(--brand-glow)] hover:-translate-y-0.5 sm:inline-flex"
           >
             Book an AI growth call
           </a>
@@ -262,13 +262,13 @@ export default function Home() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
               href={bookingUrl}
-              className="inline-flex items-center justify-center rounded-full bg-[var(--brand)] px-6 py-3.5 text-base font-medium text-white hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center rounded-full bg-[var(--brand)] px-6 py-3.5 text-base font-medium text-[var(--background)] hover:-translate-y-0.5"
             >
               Book an AI growth call
             </a>
             <a
               href="#roi"
-              className="inline-flex items-center justify-center rounded-full border border-[var(--line-strong)] px-6 py-3.5 text-base font-medium text-[var(--paper)] hover:border-[var(--brand)] hover:text-white"
+              className="inline-flex items-center justify-center rounded-full border border-[var(--line-strong)] px-6 py-3.5 text-base font-medium text-[var(--paper)] hover:border-[var(--brand)] hover:text-[var(--paper)]"
             >
               Jump to ROI estimator
             </a>
@@ -288,38 +288,44 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="panel-strong ambient-ring relative rounded-[2rem] p-4 sm:p-6 lg:p-7">
-          <div className="relative overflow-hidden rounded-[1.6rem] border border-[var(--line)]">
-            <Image
-              src="/brand/hero-ai.png"
-              alt="AI implementation visual"
-              width={918}
-              height={612}
-              className="h-[280px] w-full object-cover opacity-80 sm:h-[360px]"
-              priority
-            />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/80" />
-            <div className="absolute inset-x-0 bottom-0 space-y-4 p-6">
-              <p className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--paper)]/70">
-                What 10XAI should own
+        <div className="hero-visual panel-strong ambient-ring relative rounded-[2rem] p-4 sm:p-6 lg:p-7">
+          <div className="logo-stage relative rounded-[1.6rem] p-6 sm:p-8">
+            <div className="flex items-center justify-between gap-4">
+              <p className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--paper)]/72">
+                10XAI operating layer
               </p>
-              <div className="space-y-3">
-                {[
-                  "Lead capture, qualification, follow-up, and handoff",
-                  "Internal copilots for ops, finance, legal, and service",
-                  "Training and rollout so the team uses the system daily",
-                ].map((item, index) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-white/10 bg-black/35 px-4 py-3 text-sm text-[var(--paper)]/88 backdrop-blur"
-                  >
-                    <span className="mr-3 font-mono text-[var(--brand)]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    {item}
-                  </div>
-                ))}
-              </div>
+              <span className="rounded-full border border-[var(--line)] bg-white/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-[var(--muted)]">
+                Midnight cyan system
+              </span>
+            </div>
+
+            <div className="relative z-10 mt-10 flex justify-center">
+              <Image
+                src="/brand/10xai-logo.png"
+                alt="10XAI logo"
+                width={412}
+                height={171}
+                className="h-auto w-full max-w-[320px] drop-shadow-[0_0_42px_rgba(23,208,239,0.16)] sm:max-w-[360px]"
+                priority
+              />
+            </div>
+
+            <div className="relative z-10 mt-10 space-y-3">
+              {[
+                "Revenue systems that qualify, follow up, and book without manual lag",
+                "Ops copilots that reduce repetitive work across inbox, docs, and coordination",
+                "Rollout support so the team actually uses the workflow every day",
+              ].map((item, index) => (
+                <div
+                  key={item}
+                  className="signal-card rounded-2xl px-4 py-3 text-sm text-[var(--paper)]/88"
+                >
+                  <span className="mr-3 font-mono text-[var(--brand)]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {item}
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -429,19 +435,19 @@ export default function Home() {
             </div>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="rounded-[1.5rem] border border-[var(--line)] bg-black/25 p-5">
+              <div className="rounded-[1.5rem] border border-[var(--line)] bg-[rgba(6,12,22,0.35)] p-5">
                 <p className="text-sm text-[var(--muted)]">Monthly labor value recovered</p>
                 <p className="mt-4 text-3xl font-semibold text-[var(--paper)]">
                   ${monthlyRecovered.toLocaleString("en-US")}
                 </p>
               </div>
-              <div className="rounded-[1.5rem] border border-[var(--line)] bg-black/25 p-5">
+              <div className="rounded-[1.5rem] border border-[var(--line)] bg-[rgba(6,12,22,0.35)] p-5">
                 <p className="text-sm text-[var(--muted)]">90-day impact</p>
                 <p className="mt-4 text-3xl font-semibold text-[var(--paper)]">
                   ${quarterlyImpact.toLocaleString("en-US")}
                 </p>
               </div>
-              <div className="rounded-[1.5rem] border border-[var(--line)] bg-black/25 p-5">
+              <div className="rounded-[1.5rem] border border-[var(--line)] bg-[rgba(6,12,22,0.35)] p-5">
                 <p className="text-sm text-[var(--muted)]">Estimated payback on a sprint</p>
                 <p className="mt-4 text-3xl font-semibold text-[var(--paper)]">
                   {paybackMonths > 0 ? `${paybackMonths.toFixed(1)} mo` : "--"}
@@ -453,7 +459,7 @@ export default function Home() {
               <p className="font-mono text-xs uppercase tracking-[0.3em] text-[var(--muted)]">
                 Best first engagement
               </p>
-              <p className="mt-3 text-2xl font-medium text-white">{recommendedOffer}</p>
+              <p className="mt-3 text-2xl font-medium text-[var(--paper)]">{recommendedOffer}</p>
             </div>
           </div>
         </div>
@@ -496,7 +502,7 @@ export default function Home() {
           {comparisonRows.map(([label, detail], index) => (
             <div
               key={label}
-              className={`grid gap-4 px-6 py-5 sm:grid-cols-[0.35fr_0.65fr] ${index < comparisonRows.length - 1 ? "border-b border-[var(--line)]" : ""} ${label === "10XAI" ? "bg-[var(--brand-soft)]" : "bg-black/15"}`}
+              className={`grid gap-4 px-6 py-5 sm:grid-cols-[0.35fr_0.65fr] ${index < comparisonRows.length - 1 ? "border-b border-[var(--line)]" : ""} ${label === "10XAI" ? "bg-[var(--brand-soft)]" : "bg-[rgba(7,14,28,0.34)]"}`}
             >
               <p className="font-medium text-[var(--paper)]">{label}</p>
               <p className="text-[var(--muted)]">{detail}</p>
@@ -529,7 +535,7 @@ export default function Home() {
               <div className="grid gap-4 sm:grid-cols-3">
                 <a
                   href={bookingUrl}
-                  className="rounded-[1.5rem] border border-[var(--brand)] bg-[var(--brand)] px-4 py-5 text-center font-medium text-white hover:-translate-y-0.5"
+                  className="rounded-[1.5rem] border border-[var(--brand)] bg-[var(--brand)] px-4 py-5 text-center font-medium text-[var(--background)] hover:-translate-y-0.5"
                 >
                   Open booking flow
                 </a>
@@ -561,7 +567,7 @@ export default function Home() {
                     required
                     value={name}
                     onChange={(event) => setName(event.target.value)}
-                    className="w-full rounded-2xl border border-[var(--line)] bg-black/20 px-4 py-3 text-[var(--paper)] outline-none focus:border-[var(--brand)]"
+                    className="w-full rounded-2xl border border-[var(--line)] bg-[rgba(7,14,28,0.44)] px-4 py-3 text-[var(--paper)] outline-none focus:border-[var(--brand)]"
                   />
                 </label>
                 <label className="block">
@@ -570,7 +576,7 @@ export default function Home() {
                     required
                     value={company}
                     onChange={(event) => setCompany(event.target.value)}
-                    className="w-full rounded-2xl border border-[var(--line)] bg-black/20 px-4 py-3 text-[var(--paper)] outline-none focus:border-[var(--brand)]"
+                    className="w-full rounded-2xl border border-[var(--line)] bg-[rgba(7,14,28,0.44)] px-4 py-3 text-[var(--paper)] outline-none focus:border-[var(--brand)]"
                   />
                 </label>
                 <label className="block sm:col-span-2">
@@ -580,7 +586,7 @@ export default function Home() {
                     type="email"
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
-                    className="w-full rounded-2xl border border-[var(--line)] bg-black/20 px-4 py-3 text-[var(--paper)] outline-none focus:border-[var(--brand)]"
+                    className="w-full rounded-2xl border border-[var(--line)] bg-[rgba(7,14,28,0.44)] px-4 py-3 text-[var(--paper)] outline-none focus:border-[var(--brand)]"
                   />
                 </label>
                 <label className="block sm:col-span-2">
@@ -592,13 +598,13 @@ export default function Home() {
                     rows={5}
                     value={challenge}
                     onChange={(event) => setChallenge(event.target.value)}
-                    className="w-full rounded-2xl border border-[var(--line)] bg-black/20 px-4 py-3 text-[var(--paper)] outline-none focus:border-[var(--brand)]"
+                    className="w-full rounded-2xl border border-[var(--line)] bg-[rgba(7,14,28,0.44)] px-4 py-3 text-[var(--paper)] outline-none focus:border-[var(--brand)]"
                   />
                 </label>
               </div>
               <button
                 type="submit"
-                className="mt-6 inline-flex rounded-full bg-[var(--paper)] px-6 py-3 font-medium text-black hover:-translate-y-0.5"
+                className="mt-6 inline-flex rounded-full bg-[var(--paper)] px-6 py-3 font-medium text-[var(--background)] hover:-translate-y-0.5"
               >
                 Prepare email draft
               </button>
@@ -623,7 +629,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-3xl grid-cols-2 gap-3">
           <a
             href={bookingUrl}
-            className="rounded-full bg-[var(--brand)] px-4 py-3 text-center text-sm font-medium text-white"
+            className="rounded-full bg-[var(--brand)] px-4 py-3 text-center text-sm font-medium text-[var(--background)]"
           >
             Book call
           </a>
