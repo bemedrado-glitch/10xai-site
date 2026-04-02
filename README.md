@@ -18,6 +18,7 @@ Copy `.env.example` to `.env.local` and set any values you want active locally:
 ```bash
 NEXT_PUBLIC_BOOKING_URL=https://calendar.app.google/your-booking-page
 NEXT_PUBLIC_WHATSAPP_URL=
+INTERNAL_PORTAL_PASSWORD=change-me
 ```
 
 If these are not set, the site falls back safely:
@@ -26,6 +27,16 @@ If these are not set, the site falls back safely:
 - WhatsApp CTA falls back to email
 
 For live booking, use the public Google Calendar appointment schedule URL you want visitors to book against. The site will route all booking CTAs through `/book`, and that route will redirect to the configured Google Calendar booking page in production.
+
+## Internal operator portal
+
+The site now includes a hidden internal portal:
+
+- `/ops-access` is the password entry page
+- `/ops` contains the protected dashboard
+- `/ops/sales`, `/ops/marketing`, and `/ops/analytics` contain the internal suites
+
+This area is not linked from the public homepage, is marked `noindex`, and is disallowed in `robots.txt`. Set `INTERNAL_PORTAL_PASSWORD` in your environment to control access.
 
 ## Production deployment
 

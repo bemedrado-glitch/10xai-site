@@ -387,6 +387,97 @@ select {
   backdrop-filter: blur(12px);
 }
 
+.ops-shell {
+  border: 1px solid var(--line-strong);
+  background:
+    radial-gradient(circle at top left, rgba(23, 208, 239, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.015)),
+    rgba(7, 14, 28, 0.88);
+  box-shadow: 0 24px 70px rgba(2, 8, 20, 0.28);
+}
+
+.ops-card {
+  border: 1px solid var(--line);
+  border-radius: 1.75rem;
+  padding: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015)),
+    rgba(8, 15, 28, 0.72);
+  backdrop-filter: blur(16px);
+}
+
+.ops-metric {
+  border: 1px solid var(--line);
+  border-radius: 1.5rem;
+  padding: 1.25rem;
+  background: rgba(6, 12, 22, 0.44);
+}
+
+.ops-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.7rem 1rem;
+  font-size: 0.84rem;
+  color: var(--paper);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.ops-chip-active {
+  border-color: rgba(23, 208, 239, 0.5);
+  background: var(--brand-soft);
+}
+
+.ops-chip-danger {
+  border-color: rgba(255, 126, 126, 0.35);
+  color: #ffd0d0;
+}
+
+.ops-input {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: rgba(7, 14, 28, 0.44);
+  padding: 0.85rem 1rem;
+  color: var(--paper);
+  outline: none;
+}
+
+.ops-input:focus {
+  border-color: var(--brand);
+}
+
+.ops-row {
+  display: flex;
+  gap: 0.75rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(147, 177, 220, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 0.95rem 1rem;
+}
+
+.ops-dot {
+  margin-top: 0.55rem;
+  height: 0.45rem;
+  width: 0.45rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--brand);
+  box-shadow: 0 0 18px var(--brand-glow);
+}
+
+.ops-link {
+  color: var(--brand);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.ops-link:hover {
+  color: var(--paper);
+}
+
 @media (max-width: 767px) {
   .visual-mosaic {
     grid-template-columns: 1fr;
