@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import { FormEvent, useEffect, useState } from "react";
+import { DEFAULT_BOOKING_PATH, getBookingCtaHref } from "../lib/booking";
 
 export const CONTACT_EMAIL = "contato@10xai.us";
-export const DEFAULT_BOOKING_URL = "#contact";
+export const DEFAULT_BOOKING_URL = DEFAULT_BOOKING_PATH;
 export const languages = [
   { code: "en", label: "EN" },
   { code: "pt", label: "PT-BR" },
@@ -334,7 +335,7 @@ export default function Home() {
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
   const [challenge, setChallenge] = useState("");
-  const bookingUrl = process.env.NEXT_PUBLIC_BOOKING_URL || DEFAULT_BOOKING_URL;
+  const bookingUrl = getBookingCtaHref();
   const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL || `mailto:${CONTACT_EMAIL}`;
 
   useEffect(() => { persistLanguage(language); }, [language]);

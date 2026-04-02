@@ -16,14 +16,16 @@ Open [http://localhost:3000](http://localhost:3000).
 Copy `.env.example` to `.env.local` and set any values you want active locally:
 
 ```bash
-NEXT_PUBLIC_BOOKING_URL=
+NEXT_PUBLIC_BOOKING_URL=https://calendar.app.google/your-booking-page
 NEXT_PUBLIC_WHATSAPP_URL=
 ```
 
 If these are not set, the site falls back safely:
 
-- booking CTA falls back to the on-page contact section
+- booking CTA falls back to the internal `/book` setup page
 - WhatsApp CTA falls back to email
+
+For live booking, use the public Google Calendar appointment schedule URL you want visitors to book against. The site will route all booking CTAs through `/book`, and that route will redirect to the configured Google Calendar booking page in production.
 
 ## Production deployment
 

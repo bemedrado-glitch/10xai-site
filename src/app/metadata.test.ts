@@ -23,10 +23,12 @@ describe("metadata exports", () => {
   it("returns the expected sitemap entry", () => {
     const result = sitemap();
 
-    expect(result).toHaveLength(1);
+    expect(result).toHaveLength(2);
     expect(result[0]?.url).toBe("https://10xai.us");
     expect(result[0]?.changeFrequency).toBe("weekly");
     expect(result[0]?.priority).toBe(1);
     expect(result[0]?.lastModified).toBeInstanceOf(Date);
+    expect(result[1]?.url).toBe("https://10xai.us/book");
+    expect(result[1]?.priority).toBe(0.8);
   });
 });
