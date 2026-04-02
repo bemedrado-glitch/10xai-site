@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 10XAI Site
 
-## Getting Started
+Conversion-focused marketing site for 10XAI, built with Next.js and prepared for deployment to a separate 10XAI Vercel account.
 
-First, run the development server:
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and set any values you want active locally:
 
-## Learn More
+```bash
+NEXT_PUBLIC_BOOKING_URL=
+NEXT_PUBLIC_WHATSAPP_URL=
+```
 
-To learn more about Next.js, take a look at the following resources:
+If these are not set, the site falls back safely:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- booking CTA falls back to the on-page contact section
+- WhatsApp CTA falls back to email
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Production deployment
 
-## Deploy on Vercel
+1. Push this repo to the dedicated `10xai-site` GitHub repository.
+2. Import that repository into the separate 10XAI Vercel account or team.
+3. In Vercel project settings, add:
+   - `10xai.us`
+   - `www.10xai.us`
+4. Set any production environment variables in Vercel:
+   - `NEXT_PUBLIC_BOOKING_URL`
+   - `NEXT_PUBLIC_WHATSAPP_URL`
+5. Update GoDaddy DNS with the exact records shown by Vercel for that project.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The site is static-safe and deploys without secrets.
+- SEO launch assets are included:
+  - `/robots.txt`
+  - `/sitemap.xml`
+- Brand assets live in `public/brand`.
